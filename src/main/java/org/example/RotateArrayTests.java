@@ -2,7 +2,7 @@ package org.example;
 
 import org.junit.Test;
 
-import static org.example.Main.rotate;
+import static org.example.Solution.rotate;
 import static org.junit.Assert.assertArrayEquals;
 
 public class RotateArrayTests {
