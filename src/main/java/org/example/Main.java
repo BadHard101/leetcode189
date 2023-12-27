@@ -2,9 +2,17 @@ package org.example;
 
 import java.util.Arrays;
 
+import static org.junit.Assert.assertArrayEquals;
+
 public class Main {
     public static void rotate(int[] nums, int k) {
-        if (k > nums.length/2) {
+        if (nums.length < 2 || k == 0) return;
+
+        if (k > nums.length) {
+            k %= nums.length;
+        }
+
+        if (k > nums.length/2 || (k >= nums.length/2 && nums.length%2 == 0)) {
             int index = nums.length - k;
 
             int first = nums[index];
@@ -24,13 +32,11 @@ public class Main {
             }
             nums[nums.length-1] = first;
         }
-
-
     }
 
     public static void main(String[] args) {
-        int[] nums = {-1,-100,3,99}; // 4, 5, 6, 7, 1, 2, 3
-        int k = 2;
+        int[] nums = {-1, -100, 3, 99};
+        int k = 3;
         rotate(nums, k);
         System.out.println(Arrays.toString(nums) + " " + k);
     }
